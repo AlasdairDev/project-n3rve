@@ -1,0 +1,48 @@
+# Medium mutation rules (~40) for hashcat (-r).
+# A middle tier between wifi-rules-fast.rule (~11) and the full rule set
+# (~161). Covers the mutations people actually apply to a base password:
+# capitalise, append 2-6 digit sequences, years 2018-2025, leet, and
+# capitalise+digit combos. Bigger coverage than "fast" while still fitting a
+# generous per-stage budget on a single network.
+# c=Capitalize u=UPPER l=lower $x=append ^x=prepend sXY=substitute
+c
+u
+l
+$1
+$12
+$123
+$1234
+$12345
+$123456
+$0
+$5
+$9
+$69
+$007
+$111
+$000
+$2018
+$2019
+$2020
+$2021
+$2022
+$2023
+$2024
+$2025
+$!
+$@
+$#
+$1!
+$123!
+sa@
+se3
+si1
+so0
+ss$
+c$1
+c$12
+c$123
+c$2024
+u$1
+u$123
+cse3so0

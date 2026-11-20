@@ -1,0 +1,17 @@
+# Compact "fast" mutation rules for hashcat (-r).
+# A deliberately tiny subset of wifi-rules.rule (~10 rules) so dictionary +
+# fast-rules fits a small per-stage budget on a slow GPU. The full rule set
+# still runs later; this just guarantees the highest-value mutations happen
+# even when the full set is skipped.
+# c=Capitalize u=UPPER $x=append sxY=substitute
+c
+u
+$1
+$123
+$1234
+$2024
+$2023
+$!
+sa@
+se3
+so0

@@ -1,0 +1,39 @@
+# --- Runtime data - NEVER commit (real networks, hashes, passwords) ---
+/handshakes/*
+!/handshakes/.gitignore
+!/handshakes/.gitkeep
+/cracked_results/
+/hc22000_cache/
+/logs/
+/backups/
+/tests/fixtures/*.pcap
+/tests/fixtures/*.cap
+/tests/fixtures/*.pcapng
+!/tests/fixtures/.gitkeep
+
+# --- Large / downloaded wordlists & binaries ---
+/bin/
+/dependencies/
+/wifi-wordlist.txt
+/wifi-wordlist-ph.txt
+/wifi-wordlist-ph-merged.txt
+/wifi-wordlist-ph-sorted.txt
+/wordlists/*.txt
+hashcat-*.zip
+hashcat-*.7z
+/kernels/
+
+# --- Python / tooling ---
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.ruff_cache/
+.claude/
+/venv
+.VENV/
+*.hc22000
+*.potfile
+*.commit_hash
+debug_log*.txt
+.env

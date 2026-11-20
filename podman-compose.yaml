@@ -1,0 +1,26 @@
+name: n3rve
+services:
+  n3rve:
+    build:
+      context: .
+      dockerfile: Containerfile
+    image: localhost/n3rve:latest
+    container_name: n3rve
+    tty: true
+    stdin_open: true
+    devices:
+      - "/dev/dri:/dev/dri"
+    security_opt:
+      - "label=disable"
+    environment:
+      - HANDSHAKE_NO_AUTOINSTALL=1
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./handshakes:/work/handshakes:z
+      - ./cracked_results:/work/cracked_results:z
+      - ./logs:/work/logs:z
+      - ./hc22000_cache:/work/hc22000_cache:z
+      - ./bin:/work/bin:z
+      - .:/work:z
+    working_dir: /work
+    command: ["python3", "main.py"]
