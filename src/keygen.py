@@ -317,9 +317,7 @@ def sagecom_candidates(essid: str, bssid_hex: str) -> list[str]:
     return out
 
 
-# ─────────────────────────────────────────────────────────────────────────────
 # International derivable default keys (RouterKeygen ports)
-# ─────────────────────────────────────────────────────────────────────────────
 
 @functools.lru_cache(maxsize=512)
 def arcadyan_candidates(essid: str, bssid_hex: str) -> list[str]:
@@ -783,9 +781,7 @@ def global_default_candidates(essid: str, bssid_hex: str) -> list[str]:
     return out
 
 
-# ─────────────────────────────────────────────────────────────────────────────
 # Human-pattern guesses (brand + common suffix). Works for ANY ISP.
-# ─────────────────────────────────────────────────────────────────────────────
 
 _PH_BRAND_TOKENS = [
     # ISPs / brands. These go first so they survive the heuristic bound.
@@ -1023,10 +1019,7 @@ def heuristic_candidates(essid: str, max_n: int = _MAX_HEURISTIC) -> list[str]:
     return out
 
 
-# ─────────────────────────────────────────────────────────────────────────────
 # Common Filipino names + realistic birthdates (network-independent stage)
-# ─────────────────────────────────────────────────────────────────────────────
-#
 # Many Philippine home networks key their Wi-Fi to a name, nickname, or a
 # birthday. A generic dictionary misses those because the exact string is
 # personal. These two small sets are cheap (a few tens of thousands of
