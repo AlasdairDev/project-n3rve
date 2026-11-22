@@ -247,7 +247,7 @@ def test_vendor_stages_builds_and_cleans_up():
                 pass
 
 
-# ── multi-network hash files ─────────────────────────────────────────────────
+# multi-network hash files
 
 def _line(essid: str, bssid: str, mic: str = "aabb") -> str:
     return f"WPA*02*{mic}*{bssid}*112233445566*{essid.encode().hex()}*dd*ee*02"
@@ -345,7 +345,7 @@ def test_every_plan_stage_is_tagged_with_a_kind():
         assert stage.get("kind") in ("dict", "hybrid", "mask", "rules"), stage["label"]
 
 
-# ── throughput estimation ────────────────────────────────────────────────────
+# throughput estimation
 
 def test_speed_estimate_ignores_tiny_stages():
     """A 3-word dictionary stage once measured 91 H/s on a GPU doing ~48 kH/s,
@@ -378,7 +378,7 @@ def test_speed_estimate_handles_no_measurement():
     assert _update_speed_estimate(5000, [], None) == 5000
 
 
-# ── PH ISP family targeting ──────────────────────────────────────────────────
+# PH ISP family targeting
 
 def _mask_labels(essid, bssid="aabbccddeeff"):
     return [s["label"] for s in _isp_mask_stages(essid, bssid)]
@@ -492,7 +492,7 @@ def test_default_budget_admits_rules_but_not_the_hopeless_sweeps():
         assert hopeless / speed > budget, "exhaustive sweeps must still be skipped"
 
 
-# ── salt-aware runtime estimates ─────────────────────────────────────────────
+# salt-aware runtime estimates
 
 def test_salt_count_is_distinct_essids():
     from src.hashcat.crack import _salt_count
@@ -517,7 +517,7 @@ def test_estimates_scale_with_the_number_of_networks():
     assert one < 2 * 3600 <= eleven, "the gate must admit it solo and reject it for 11 networks"
 
 
-# ── family masks only run against their own family ───────────────────────────
+# family masks only run against their own family
 
 def _line(essid, bssid="aa" * 6, mic="bb" * 16):
     return f"WPA*02*{mic}*{bssid}*112233445566*{essid.encode().hex()}*dd*ee*02"
@@ -570,7 +570,7 @@ def test_stage_without_targets_uses_every_hash(tmp_path, monkeypatch):
     assert path == full and salts == 3
 
 
-# ── up-front timing ──────────────────────────────────────────────────────────
+# up-front timing
 
 def test_benchmark_parses_hashcat_machine_readable_output():
     """Format is device:mode:?:?:ms:H/s - reading the wrong fields silently

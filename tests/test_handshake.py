@@ -38,7 +38,7 @@ _NEEDS_FIXTURE = pytest.mark.skipif(
 )
 
 
-# ── helpers to build synthetic frames ────────────────────────────────────────
+# helpers to build synthetic frames
 
 def _beacon(ap: str, essid: str):
     return Dot11(addr1="ff:ff:ff:ff:ff:ff", addr2=ap, addr3=ap) / Dot11Beacon() / Dot11Elt(ID=0, info=essid.encode())
@@ -91,7 +91,7 @@ def _m4(ap, sta, replay=2, ts=0.03):
                       nonce=b"\x00" * 32, replay=replay, ts=ts)
 
 
-# ── the real-capture cryptographic check ─────────────────────────────────────
+# the real-capture cryptographic check
 
 def _prf512(pmk: bytes, label: bytes, data: bytes) -> bytes:
     out = b""
@@ -180,7 +180,7 @@ def test_mismatched_anonce_attempt_is_not_spliced():
     assert net.hashes[0].anonce.startswith("6de50de99b7e")
 
 
-# ── multi-network behaviour ──────────────────────────────────────────────────
+# multi-network behaviour
 
 AP_A, STA_A, ESSID_A = "aa:aa:aa:aa:aa:aa", "11:11:11:11:11:11", "PLDTHOMEFIBR_A"
 AP_B, STA_B, ESSID_B = "bb:bb:bb:bb:bb:bb", "22:22:22:22:22:22", "Converge_B"
@@ -299,7 +299,7 @@ def test_pmkid_and_eapol_both_emitted():
     assert extract_pmkid(kde) == "aa" * 16
 
 
-# ── filename parsing ─────────────────────────────────────────────────────────
+# filename parsing
 
 def test_essid_from_filename_variants():
     assert essid_from_filename("HS_AABBCCDDEEFF_MyNet.pcap", "aa:bb:cc:dd:ee:ff") == "MyNet"
@@ -310,7 +310,7 @@ def test_essid_from_filename_variants():
     assert essid_from_filename("WarehouseAP-01.cap", "aa:bb:cc:dd:ee:ff") == "WarehouseAP"
 
 
-# ── merging an external extractor's output ───────────────────────────────────
+# merging an external extractor's output
 
 def _hcx_line(essid: str, ap: str, sta: str, kind: str = "02") -> str:
     return "*".join(
@@ -390,7 +390,7 @@ def test_external_essid_unlocks_our_own_pairing(monkeypatch):
     assert "hcxpcapngtool" in sources
 
 
-# ── security mode detection ──────────────────────────────────────────────────
+# security mode detection
 
 def _rsn_ie(akm_types, group=b"\x00\x0f\xac\x04"):
     """Build an RSN information element advertising the given AKM suites."""

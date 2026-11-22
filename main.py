@@ -8,7 +8,7 @@ import sys
 import signal
 import time
 
-# ── Phase 1: Auto-install Python dependencies ──────────────────────────
+# Phase 1: Auto-install Python dependencies
 _REQUIREMENTS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "requirements.txt")
 
 from src.bootstrap import pip_install_requirements as _pip_install_requirements
@@ -28,7 +28,7 @@ except ImportError:
         print(f"Or with override: pip install --break-system-packages -r {_REQUIREMENTS}")
         sys.exit(1)
 
-# ── Phase 2: Project imports ───────────────────────────────────────────
+# Phase 2: Project imports
 
 from prompt_toolkit.shortcuts import PromptSession
 from prompt_toolkit.history import InMemoryHistory
@@ -319,7 +319,7 @@ def main(argv=None):
 
         session = PromptSession(history=InMemoryHistory())
 
-        # ── Wordlist selection ─────────────────────────────────────────
+        # Wordlist selection
         default_wordlist = os.path.join(os.path.dirname(os.path.abspath(__file__)), WORDLIST_NAME)
         if args.default_wordlist:
             wordlist_path = default_wordlist
@@ -339,7 +339,7 @@ def main(argv=None):
         # Start each run's effort record clean so a report reflects only this run.
         reset_effort()
 
-        # ── Focus mode: one capture, one live dashboard ────────────────
+        # Focus mode: one capture, one live dashboard
         if args.focus:
             focus_path = args.focus
             if not os.path.isfile(focus_path):

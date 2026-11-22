@@ -308,7 +308,7 @@ def test_global_defaults_expanded_and_valid():
     assert len(cands) == len(set(cands))
 
 
-# ── International derivable algorithms ──────────────────────────────────────
+# International derivable algorithms
 
 def test_arcadyan_known_vector():
     # Hand-computed from ArcadyanKeygen.cpp against mac 00:aa:bb:11:22:33
@@ -473,7 +473,7 @@ def test_global_covers_ph_and_international_combo_mac():
     assert "wlan3a3b36" in cands
 
 
-# ── suffix expansion budget ──────────────────────────────────────────────────
+# suffix expansion budget
 
 def test_suffix_variants_never_drop_a_computed_key():
     """A derived factory key is a likely hit on its own; it must not be evicted

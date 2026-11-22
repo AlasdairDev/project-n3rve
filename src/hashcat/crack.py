@@ -1361,7 +1361,7 @@ class _StatusLine:
             sys.stdout.flush()
 
 
-# ── Focus mode: a single-network live dashboard ──────────────────────────────
+# Focus mode: a single-network live dashboard
 #
 # When the user runs `--focus <capture>`, one network gets the whole spotlight:
 # instead of one scrolling status line per stage, a single rich.Live panel stays

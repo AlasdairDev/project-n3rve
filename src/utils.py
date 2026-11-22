@@ -263,7 +263,7 @@ def download_and_extract_zip(
             os.unlink(tmp_path)
 
 
-# ── Recovered UI Functions ──
+# Recovered UI Functions
 
 import time
 from prompt_toolkit.validation import Validator, ValidationError

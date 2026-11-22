@@ -289,7 +289,7 @@ class CaptureAnalysis:
         return lines
 
 
-# ── frame walking ────────────────────────────────────────────────────────────
+# frame walking
 
 
 # AKM suite selectors (IEEE 802.11, OUI 00-0F-AC). What the AP accepts for
@@ -495,7 +495,7 @@ def _collect(packets) -> tuple[dict[str, str], dict[str, str], dict[tuple[str, s
     return essids, security, pairs, eapol_seen
 
 
-# ── pairing ──────────────────────────────────────────────────────────────────
+# pairing
 
 
 def _eapol_window() -> float:
@@ -613,7 +613,7 @@ def _pair_hashes(frames: list[EapolFrame]) -> list[WpaHash]:
     return out[:_MAX_HASHES_PER_PAIR]
 
 
-# ── filename fallback ────────────────────────────────────────────────────────
+# filename fallback
 
 _FILENAME_MAC_RE = re.compile(r"(?i)(?:^|[_\-])((?:[0-9a-f]{2}[:\-]?){5}[0-9a-f]{2})(?:[_\-]|$)")
 _AIRODUMP_SUFFIX_RE = re.compile(r"-\d{2}$")
@@ -652,7 +652,7 @@ def essid_from_filename(path: str, bssid: str) -> str | None:
     return cleaned or None
 
 
-# ── external extractor (hcxpcapngtool) ───────────────────────────────────────
+# external extractor (hcxpcapngtool)
 
 _HCX_TIMEOUT = 300
 _hcx_cache: dict[tuple, list[str]] = {}
@@ -770,7 +770,7 @@ def merge_external_lines(analysis: "CaptureAnalysis", lines: list[str]) -> int:
     return added
 
 
-# ── entry points ─────────────────────────────────────────────────────────────
+# entry points
 
 
 def analyze_packets(packets, capture_path: str = "") -> CaptureAnalysis:
