@@ -40,7 +40,7 @@
 | **PH-specific mask patterns** | PH mobile numbers (0917-0921), birthdates (MMDDYYYY/DDMMYYYY), landline formats - added to every ISP family |
 | **Expanded hashcat rules** | 60+ rules with PH mobile prefixes, years (2020-2025), leet speak, Filipino terms, special-char suffixes |
 | **Wordlist priority sorting** | PH-first ordering: ISP names, mobile prefixes, years, short numerics, and Filipino terms tried before long random strings |
-| **Robust handshake extraction** | Accepts partial handshakes (M2 + M1 *or* M3) and M4 pairs with a usable SNONCE |
+| **Handshake extraction** | Accepts partial handshakes (M2 + M1 *or* M3) and M4 pairs with a usable SNONCE |
 | **Curated wordlist** | ~8.5M real-world passwords, filtered to 8-63 chars and sorted |
 | **Custom wordlist** | Use the bundled list or your own `.txt`; also a `wordlists/` drop-in folder |
 | **Security-mode detection** | Labels WPA2-PSK / WPA3-SAE / WPA2-Enterprise / OWE / WEP / Open and explains dead ends |
